@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laskentamallit ja formulas - Ei-työperäisen maahanmuuton taloudelliset vaikutukset Suomessa</title>
+    <meta name="description" content="Yksityiskohtaiset laskentamallit ja matematiikka taustalla">
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent" class="cookie-consent" style="display: none;">
+        <div class="cookie-content">
+            <p>Tämä sivusto tallentaa teemavalintasi selaimen muistiin paremman käyttökokemuksen takaamiseksi. Jatkaako tallentaminen?</p>
+            <div class="cookie-buttons">
+                <button id="accept-cookies" class="btn-accept">Hyväksy</button>
+                <button id="decline-cookies" class="btn-decline">Kieltäydy</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1><a href="../../index.html">Maahanmuuton taloudellinen analyysi</a></h1>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-link">Suomi-analyysi</a>
+                <a href="../index.html#laskuri" class="nav-link">Laskuri</a>
+                <a href="menetelmat.html" class="nav-link">Menetelmät</a>
+                <a href="tulokset.html" class="nav-link">Tulokset</a>
+                
+                <button id="theme-toggle" class="theme-toggle" aria-label="Vaihda teemaa">
+                    <span class="theme-icon"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <article class="article-container">
+            <header class="article-header">
+                <h1 class="article-title">Laskentamallit ja matematiikka</h1>
+                <p class="article-subtitle">Yksityiskohtaiset kaavat ja laskentalogiikka interaktiivisen laskurin taustalla</p>
+            </header>
+
+            <div class="back-home">
+                <a href="../index.html" class="back-home-btn">← Takaisin Suomi-analyysiin</a>
+            </div>
+
+            <div class="article-content">
+                <p class="section-intro">
+                    <em><strong>Huomautus:</strong> Tämä sivusto on luotu yhteistyössä Claude Sonnet 4 -tekoälyn kanssa tutkimustulosten havainnollistamiseksi ja analyysien selkeyttämiseksi. Alla olevat kaavat ovat ne, joita interaktiivinen laskuri käyttää.</em>
+                </p>
+
+                <h2>Peruslaskentamalli</h2>
+
+                <p>Interaktiivinen laskuri perustuu seuraavaan perusmalliin, joka laskee yhden maahanmuuttajan taloudelliset vaikutukset valituille parametreille:</p>
+
+                <div class="key-findings">
+                    <strong>Peruskaava nettonykyarvolle (NPV):</strong><br><br>
+                    <code>NPV = Σ(t=1 to T) [(Tulot_t - Kustannukset_t) / (1 + r)^t]</code><br><br>
+                    Missä:<br>
+                    • T = tarkastelujakso vuosina<br>
+                    • r = diskonttokorko (3%)<br>
+                    • Tulot_t = kokonaisverotulot vuonna t<br>
+                    • Kustannukset_t = kotoutus + sosiaalietuudet vuonna t
+                </div>
+
+                <h2>Verotulojen laskenta</h2>
+
+                <h3>1. Suorat verotulot</h3>
+
+                <p>Suorat verotulot lasketaan bruttopalkasta käyttäen kokonaisveroastetta:</p>
+
+                <div class="key-findings">
+                    <code>SuoratVerotulot = Vuosipalkka × Kokonaisveroaste × (Työllistymisaste / 100)</code><br><br>
+                    Missä:<br>
+                    • Kokonaisveroaste = 45% (sisältää tuloverot ja työnantajamaksut)<br>
+                    • Työllistymisaste = parametri laskurissa (%)
+                </div>
+
+                <h3>2. Kulutusverot</h3>
+
+                <p>Kulutusverot syntyvät siitä, että työntekijä käyttää palkkansa kulutukseen:</p>
+
+                <div class="key-findings">
+                    <code>Kulutusverot = (Vuosipalkka - Suorat_verot) × Kulutusaste × ALV_kerroin × (Työllistymisaste / 100)</code><br><br>
+                    Missä:<br>
+                    • Kulutusaste = 95% (lähes kaikki tulot kulutetaan)<br>
+                    • ALV_kerroin = 20% (painotettu keskiarvo eri ALV-kannoista)
+                </div>
+
+                <h3>3. Välilliset verotulot (multiplikaattorivaikutus)</h3>
+
+                <p>Multiplikaattorivaikutus syntyy, kun yksi euro palkkaa synnyttää lisää taloudellista aktiviteettia:</p>
+
+                <div class="key-findings">
+                    <code>VälillisetTulot = Vuosipalkka × (Multiplikaattori - 1) × Keskiveroaste × 0.5 × (Työllistymisaste / 100)</code><br><br>
+                    Missä:<br>
+                    • Multiplikaattori = valittu kerroin (2.0 - 4.3)<br>
+                    • Keskiveroaste = 45%<br>
+                    • 0.5 = korjauskerroin (puolet multiplikaattorista muuttuu verotuloiksi)
+                </div>
+
+                <h2>Kustannusten laskenta</h2>
+
+                <h3>Kotoutumiskustannukset</h3>
+
+                <p>Kotoutumiskustannukset lasketaan ajanjaksolla, jolloin ne ovat voimassa:</p>
+
+                <div class="key-findings">
+                    <code>Kotoutumiskustannukset_t = if (t ≤ 2.5) then KotoutumisVuosikustannus else 0</code><br><br>
+                    Missä:<br>
+                    • KotoutumisVuosikustannus = parametri laskurissa (€/vuosi)<br>
+                    • 2.5 vuotta = keskimääräinen kotoutumisjakso
+                </div>
+
+                <h3>Sosiaalietuudet työttömille</h3>
+
+                <p>Työttömyysastetta vastaava osuus saa sosiaalietuuksia:</p>
+
+                <div class="key-findings">
+                    <code>Sosiaalietuudet_t = (100 - Työllistymisaste) / 100 × (Työttömyysturva + Asumistuki + Toimeentulotuki)</code><br><br>
+                    Missä:<br>
+                    • Työttömyysturva = 9,600€/vuosi<br>
+                    • Asumistuki = 4,200€/vuosi<br>
+                    • Toimeentulotuki = 3,600€/vuosi<br>
+                    • Yhteensä = 17,400€/vuosi työttömälle
+                </div>
+
+                <h2>Työllistymisen aikakehitys</h2>
+
+                <p>Laskuri käyttää yksinkertaistettua mallia, jossa työllistymisaste on vakio koko tarkastelujakson ajan. Todellisessa tutkimuksessa käytetään monimutkaisempaa mallia:</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Vuosi</th>
+                            <th>Tutkimusmallin työllistymisaste</th>
+                            <th>Laskurin yksinkertainen malli</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1-2</td>
+                            <td>15%</td>
+                            <td rowspan="4">Vakio (valittu parametri)</td>
+                        </tr>
+                        <tr>
+                            <td>3-5</td>
+                            <td>40%</td>
+                        </tr>
+                        <tr>
+                            <td>6-10</td>
+                            <td>52%</td>
+                        </tr>
+                        <tr>
+                            <td>11+</td>
+                            <td>60%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Takaisinmaksuajan laskenta</h2>
+
+                <p>Takaisinmaksuaika on aika, jolloin kumulatiiviset tuotot ylittävät kumulatiiviset kustannukset:</p>
+
+                <div class="key-findings">
+                    <code>Takaisinmaksuaika = min(t) kun Σ(i=1 to t) (Tulot_i - Kustannukset_i) > 0</code><br><br>
+                    Eli löydetään pienin vuosi t, jolloin kumulatiivinen kassavirta muuttuu positiiviseksi.
+                </div>
+
+                <h3>JavaScript-toteutus takaisinmaksuajalle</h3>
+
+                <div class="key-findings">
+                    <strong>Laskurin koodi (yksinkertaistettu):</strong><br><br>
+                    <code>
+                    let cumulativeCashFlow = 0;<br>
+                    let paybackPeriod = 0;<br>
+                    <br>
+                    for (let year = 1; year <= 10; year++) {<br>
+                    &nbsp;&nbsp;let yearlyBenefit = calculateYearlyBenefit(year);<br>
+                    &nbsp;&nbsp;cumulativeCashFlow += yearlyBenefit;<br>
+                    <br>
+                    &nbsp;&nbsp;if (cumulativeCashFlow > 0 && paybackPeriod === 0) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;paybackPeriod = year;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+                    &nbsp;&nbsp;}<br>
+                    }
+                    </code>
+                </div>
+
+                <h2>Nettovaikutuksen laskenta vakaan tilan aikana</h2>
+
+                <p>Laskuri näyttää myös "nettovaikutus/vuosi (vakaa tila)" -arvon, joka kuvaa vuosittaista hyötyä kotoutumisjakson jälkeen:</p>
+
+                <div class="key-findings">
+                    <code>NettovaikutusVakaasTila = KokonaisTulotVuodessa - SosiaalietuudetVuodessa</code><br><br>
+                    Tämä on hyöty per vuosi, kun kotoutumiskustannukset ovat päättyneet.
+                </div>
+
+                <h2>Herkkyyslaskennan periaatteet</h2>
+
+                <p>Laskuri päivittyy reaaliajassa, kun parametreja muutetaan. Tämä mahdollistaa herkkyysanalyysin tekemisen:</p>
+
+                <h3>Parametrien vaikutuskerroin NPV:hen</h3>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Parametri</th>
+                            <th>Muutos</th>
+                            <th>NPV:n muutos (likiarvo)</th>
+                            <th>Kaava</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Multiplikaattori</td>
+                            <td>+1.0</td>
+                            <td>+87,000€</td>
+                            <td>ΔMultiplikaattori × Palkka × 0.225 × Vuodet</td>
+                        </tr>
+                        <tr>
+                            <td>Työllistymisaste</td>
+                            <td>+10%</td>
+                            <td>+57,000€</td>
+                            <td>ΔTyöllistymis% × KokonaisTulot × Vuodet / 10</td>
+                        </tr>
+                        <tr>
+                            <td>Vuosipalkka</td>
+                            <td>+2,000€</td>
+                            <td>+39,000€</td>
+                            <td>ΔPalkka × 1.95 × Vuodet</td>
+                        </tr>
+                        <tr>
+                            <td>Kotoutumiskust.</td>
+                            <td>+1,000€</td>
+                            <td>-2,500€</td>
+                            <td>-ΔKustannus × 2.5 vuotta</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Validointi ja virheentarkistus</h2>
+
+                <p>Laskuri sisältää perusvalidointia, joka varmistaa järkevät tulokset:</p>
+
+                <h3>Parametrien rajat</h3>
+                <ul>
+                    <li><strong>Työllistymisaste:</strong> 10-100% (ei voi olla negatiivinen tai yli täystyöllisyyden)</li>
+                    <li><strong>Vuosipalkka:</strong> 15,000-50,000€ (realistinen vaihteluväli Suomessa)</li>
+                    <li><strong>Multiplikaattori:</strong> 2.0-5.0 (taloustieteellisesti perusteltu vaihteluväli)</li>
+                    <li><strong>Kotoutumiskustannukset:</strong> 3,000-10,000€ (viralliset rajat huomioiden)</li>
+                </ul>
+
+                <h3>Tuloksen järkevyyden tarkistus</h3>
+
+                <div class="key-findings">
+                    <strong>Automaattiset tarkistukset:</strong><br>
+                    • Jos NPV < -100,000€ → Varoitus epärealistisista parametreista<br>
+                    • Jos takaisinmaksuaika > 15 vuotta → Merkintä hitaasta kannattavuudesta<br>
+                    • Jos vuosittaiset tulot > 50,000€ → Tarkistus korkeista oletuksista
+                </div>
+
+                <h2>Rajoitukset ja huomautukset</h2>
+
+                <p>On tärkeää ymmärtää laskurin rajoitukset verrattuna täydelliseen tutkimusanalyysiin:</p>
+
+                <h3>Yksinkertaistukset laskurissa</h3>
+                <ul>
+                    <li><strong>Vakio työllistymisaste:</strong> Tutkimuksessa työllistyminen kehittyy asteittain</li>
+                    <li><strong>Inflaation sivuuttaminen:</strong> Todellinen analyysi huomioi hintatason muutokset</li>
+                    <li><strong>Yksi henkilö kerrallaan:</strong> Ei huomioi ryhmävaikutuksia tai skaalausetuja</li>
+                    <li><strong>Staattinen malli:</strong> Ei huomioi talouden rakenteellisia muutoksia</li>
+                </ul>
+
+                <h3>Miksi yksinkertaistukset ovat hyväksyttäviä</h3>
+                <p>Laskurin tarkoitus on antaa käyttäjälle intuitiivinen ymmärrys siitä, miten eri tekijät vaikuttavat kannattavuuteen. Yksinkertaistettu malli antaa suuntaa antavat tulokset, jotka auttavat hahmottamaan suuruusluokat ja keskeisten parametrien merkityksen.</p>
+
+                <h2>Tekninen toteutus</h2>
+
+                <p>Laskuri on toteutettu puhtaalla JavaScriptilla ilman ulkoisia riippuvuuksia:</p>
+
+                <h3>Keskeinen laskentafunktio</h3>
+
+                <div class="key-findings">
+                    <strong>updateResults() -funktion rakenne:</strong><br><br>
+                    <code>
+                    function updateResults() {<br>
+                    &nbsp;&nbsp;// 1. Lue parametrit input-kentistä<br>
+                    &nbsp;&nbsp;const employmentRate = parseFloat(document.getElementById('employment-rate').value);<br>
+                    &nbsp;&nbsp;const annualSalary = parseFloat(document.getElementById('annual-salary').value);<br>
+                    &nbsp;&nbsp;// ...<br>
+                    <br>
+                    &nbsp;&nbsp;// 2. Laske verotulot<br>
+                    &nbsp;&nbsp;const directTaxes = calculateDirectTaxes(annualSalary, employmentRate);<br>
+                    &nbsp;&nbsp;const consumptionTaxes = calculateConsumptionTaxes(annualSalary, employmentRate);<br>
+                    &nbsp;&nbsp;const indirectTaxes = calculateIndirectTaxes(annualSalary, multiplier, employmentRate);<br>
+                    <br>
+                    &nbsp;&nbsp;// 3. Laske kustannukset<br>
+                    &nbsp;&nbsp;const socialBenefits = calculateSocialBenefits(employmentRate);<br>
+                    <br>
+                    &nbsp;&nbsp;// 4. Laske NPV ja takaisinmaksuaika<br>
+                    &nbsp;&nbsp;const results = calculateNPV(revenues, costs, timeHorizon);<br>
+                    <br>
+                    &nbsp;&nbsp;// 5. Päivitä näyttö<br>
+                    &nbsp;&nbsp;displayResults(results);<br>
+                    }
+                    </code>
+                </div>
+
+                <h3>Suorituskyvyn optimointi</h3>
+                <ul>
+                    <li><strong>Debouncing:</strong> Laskenta triggeröidään vasta kun käyttäjä lopettaa parametrin säätämisen</li>
+                    <li><strong>Caching:</strong> Toistuvat laskelmat tallennetaan välimuistiin</li>
+                    <li><strong>Lazy evaluation:</strong> Monimutkaiset laskelmat tehdään vain näkyviin tuloksiin</li>
+                </ul>
+
+                <h2>Jatkokehitysmahdollisuudet</h2>
+
+                <p>Laskurin toiminnallisuutta voitaisiin laajentaa seuraavilla ominaisuuksilla:</p>
+
+                <h3>Lyhyen aikavälin parannukset</h3>
+                <ul>
+                    <li><strong>Graafinen esitys:</strong> NPV:n kehitys ajan funktiona</li>
+                    <li><strong>Monte Carlo -simulaatio:</strong> Epävarmuuden kvantifiointi</li>
+                    <li><strong>Skenaarioiden vertailu:</strong> Useamman skenaarion samanaikainen tarkastelu</li>
+                    <li><strong>Exportti-toiminnot:</strong> Tulosten tallentaminen CSV/PDF-muotoon</li>
+                </ul>
+
+                <h3>Pidemmän aikavälin kehitys</h3>
+                <ul>
+                    <li><strong>Alueelliset erot:</strong> Eri maakuntien parametrit</li>
+                    <li><strong>Inflaation huomiointi:</strong> Reaaliarvioiden laskenta</li>
+                    <li><strong>Stokastiset mallit:</strong> Epävarmuuden mallintaminen todennäköisyysjakaumilla</li>
+                    <li><strong>Optimointi:</strong> Parhaat parametrikombinaatoiot automaattisesti</li>
+                </ul>
+
+                <h2>Yhteenveto</h2>
+
+                <p>Interaktiivinen laskuri tarjoaa käyttäjäystävällisen tavan tutkia maahanmuuton taloudellisten vaikutusten herkkyyttä eri parametreille. Vaikka se on yksinkertaistettu versio täydellisestä tutkimusmallista, se antaa arvokasta intuitiota siitä, mitkä tekijät ovat kriittisimpiä kannattavuuden kannalta.</p>
+
+                <p>Keskeiset havainnot laskurista käytettäessä:</p>
+                <ul>
+                    <li><strong>Multiplikaattori on kriittisin parametri</strong> - 1 yksikön muutos vaikuttaa NPV:hen ~87,000 eurolla</li>
+                    <li><strong>Työllistymisaste on toiseksi tärkein</strong> - 10% paraneminen lisää NPV:tä ~57,000 eurolla</li>
+                    <li><strong>Kotoutumiskustannuksilla on suhteellisen pieni vaikutus</strong> - ne kannattaa optimoida tehokkuuden, ei säästön vuoksi</li>
+                    <li><strong>Pitkä aikaväli on välttämätön</strong> - lyhyet tarkasteluajat aliarvioivat hyötyjä systemaattisesti</li>
+                </ul>
+
+                <p>Laskuri täydentää täydellisempää tutkimusanalyysia antamalla käyttäjille mahdollisuuden "leikkiä" parametreilla ja kehittää intuitiivista ymmärrystä maahanmuuton taloudellisista vaikutuksista.</p>
+            </div>
+
+            <div class="back-home">
+                <a href="../index.html" class="back-home-btn">← Takaisin Suomi-analyysiin</a>
+            </div>
+        </article>
+    </main>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>
