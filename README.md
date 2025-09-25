@@ -9,7 +9,7 @@ Tämä repositorio sisältää kattavia taloudellisia analyyseja ei-työperäise
 - **Aikaväli**: 20 vuoden NPV-analyysi
 - **Keskeiset tulokset**: 187,000-386,000€ nettohyöty per henkilö
 - **Takaisinmaksuaika**: 2.1-4.2 vuotta
-- **[Tutustu analyysiin →](https://stochastic-philosophy.github.io/maahanmuutto-analyysi/suomi/)**
+- **[Tutustu analyysiin →](https://stochastic-philosophy.github.io/maahanmuuttotutkimus/suomi/)**
 
 ### 🇺🇸 Yhdysvallat  
 - **Status**: 🚧 Tulossa pian
@@ -97,7 +97,7 @@ docs/
 2. **Mene Settings** > Pages
 3. **Valitse Source**: "Deploy from a branch"
 4. **Valitse branch**: `main` ja folder: `/ (docs)`
-5. **Sivusto valmis** osoitteessa: `https://stochastic-philosophy.github.io/maahanmuutto-analyysi/`
+5. **Sivusto valmis** osoitteessa: `https://stochastic-philosophy.github.io/maahanmuuttotutkimus/`
 
 ### Mukautus
 - **Päivitä tiedot**: Korvaa maakohtaiset tiedot omilla analyyseillä
@@ -209,4 +209,4 @@ Käyttäjät voivat itse arvioida, onko tekoälyn osallistuminen heille este siv
 
 **📊 Evidenssipohjaiset päätökset, parempi yhteiskunta**
 
-*"Kun politiikka perustuu tosiasioihin tiivaltteiden, tunnuksiltaan tai ideologioiden sijaan, voimme rakentaa inhimillisemmän ja taloudellisesti järkevämmän tulevaisuuden."*
+*"Kun politiikka perustuu tosiasioihin tunteiden, iskulauseiden tai ideologioiden sijaan, voimme rakentaa inhimillisemmän ja taloudellisesti kannattavamman tulevaisuuden."*
