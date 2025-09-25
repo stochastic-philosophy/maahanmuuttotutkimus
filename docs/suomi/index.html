@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suomi: Ei-työperäisen maahanmuuton taloudelliset vaikutukset</title>
-    <meta name="description" content="Realistinen analyysi kotoutusinvestointien kannattavuudesta Suomessa">
+    <title>Ei-työperäisen maahanmuuton taloudelliset vaikutukset Suomessa</title>
+    <meta name="description" content="Kattava analyysi maahanmuuton taloudellisista vaikutuksista Suomen julkiseen talouteen">
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
@@ -23,18 +23,18 @@
     <nav class="main-nav">
         <div class="nav-container">
             <div class="nav-brand">
-                <h1><a href="../index.html">Maahanmuuttotutkimus</a></h1>
+                <h1><a href="../index.html">Maahanmuuton taloudellinen analyysi</a></h1>
             </div>
             
             <div class="nav-menu">
-                <a href="#yleiskatsaus" class="nav-link">Yleiskatsaus</a>
+                <a href="#taustaa" class="nav-link">Taustaa</a>
                 <a href="#menetelmat" class="nav-link">Menetelmät</a>
                 <a href="#tulokset" class="nav-link">Tulokset</a>
                 <a href="#laskuri" class="nav-link">Laskuri</a>
                 <a href="#johtopäätökset" class="nav-link">Johtopäätökset</a>
                 
                 <button id="theme-toggle" class="theme-toggle" aria-label="Vaihda teemaa">
-                    <span class="theme-icon">🌙</span>
+                    <span class="theme-icon"></span>
                 </button>
             </div>
             
@@ -50,198 +50,328 @@
         <!-- Hero Section -->
         <section id="home" class="hero">
             <div class="container">
-                <h1>🇫🇮 Suomi: Kotoutusinvestointien kannattavuus</h1>
-                <p class="hero-subtitle">Realistinen analyysi ei-työperäisen maahanmuuton taloudellisista vaikutuksista</p>
+                <h1>🇫🇮 Ei-työperäisen maahanmuuton taloudelliset vaikutukset Suomessa</h1>
+                <p class="hero-subtitle">Kattava kustannus-hyötyanalyysi multiplikaattorivaikutuksineen</p>
                 <p class="hero-description">
-                    Kattava nettonykyarvoanalyysi, joka huomioi todelliset työllistymispolut, kokonaiskustannukset ja 
-                    multiplikaattorivaikutukset. Analyysi korjaa aiempien tutkimusten puutteita ja paljastaa 
-                    kotoutusinvestointien todellisen kannattavuuden.<br>
-                    Lukihäiriöstäni johtuvien kirjoitusvirheiden korjaamisesta, eli tekstin oikoluennasta vastannut Claude Sonnet 4.
+                    Tämä tutkimus analysoi ei-työperäisen maahanmuuton taloudellisia vaikutuksia Suomen julkiseen talouteen 
+                    20 vuoden aikajänteellä. Analyysi perustuu virallisiin tilastoihin ja ottaa huomioon kotoutumiskustannukset, 
+                    työllistymispolut, verotulot ja multiplikaattorivaikutukset erityisesti hoivapalveluissa.<br><br>
+                    <em>Tutkimus on toteutettu yhteistyössä Claude Sonnet 4 -tekoälyn kanssa analyysien ja laskentamallien kehittämiseksi.</em>
                 </p>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <h3>178 500€</h3>
-                        <p>NPV per henkilö</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>2.1v</h3>
-                        <p>Takaisinmaksuaika</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>2.47</h3>
-                        <p>Tuotto/investointi</p>
-                    </div>
+                <div class="hero-buttons">
+                    <a href="downloads/suomi-maahanmuutto-analyysi.pdf" class="download-btn">📄 Lataa PDF-raportti</a>
+                    <a href="#laskuri" class="read-more-btn">🔢 Kokeile laskuria</a>
                 </div>
             </div>
         </section>
 
-        <!-- Navigation Sections -->
-        <section id="navigation" class="content-section">
-            <div class="container">
-                <h2>Tutkimuksen osat</h2>
-                <div class="findings-grid">
-                    <div class="finding-card">
-                        <h3>📋 Yleiskatsaus</h3>
-                        <p>Tutkimuksen tavoitteet, lähtökohdat ja yhteenveto keskeisistä havainnoista. Miksi aiemmat analyysit ovat antaneet väärän kuvan?</p>
-                        <a href="yleiskatsaus.html" class="card-link">Tutustu yleiskatsaukseen →</a>
-                    </div>
-                    
-                    <div class="finding-card">
-                        <h3>🔬 Menetelmät ja data</h3>
-                        <p>NPV-malli, työllistymispolut, multiplikaattorivaikutukset ja käytetyt tietolähteet. Miten realistinen analyysi tehdään?</p>
-                        <a href="menetelmat.html" class="card-link">Tutustu menetelmiin →</a>
-                    </div>
-                    
-                    <div class="finding-card">
-                        <h3>📊 Tulokset ja analyysi</h3>
-                        <p>Korjatun mallin tulokset, herkkyysanalyysi ja vertailu alkuperäiseen pessimistiseen malliin.</p>
-                        <a href="tulokset.html" class="card-link">Katso tulokset →</a>
-                    </div>
-                    
-                    <div class="finding-card">
-                        <h3>🧮 Interaktiivinen laskuri</h3>
-                        <p>Testaa eri parametrien vaikutuksia NPV-laskelmaan. Miten kustannukset ja tuotot vaikuttavat kannattavuuteen?</p>
-                        <a href="laskuri.html" class="card-link">Kokeile laskuria →</a>
-                    </div>
-                    
-                    <div class="finding-card">
-                        <h3>💡 Johtopäätökset</h3>
-                        <p>Keskustelu tuloksista, Ruotsin kokemus ja politiikkasuositukset. Mitä tämä merkitsee Suomen maahanmuuttopolitiikalle?</p>
-                        <a href="johtopäätökset.html" class="card-link">Lue johtopäätökset →</a>
-                    </div>
-                    
-                    <div class="finding-card">
-                        <h3>📚 Lähdeluettelo</h3>
-                        <p>Kaikki tutkimuksessa käytetyt lähteet: tilastot, tutkimukset ja viralliset dokumentit.</p>
-                        <a href="#sources" class="card-link">Katso lähteet →</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Key Findings Summary -->
-        <section id="key-findings" class="content-section">
+        <!-- Keskeiset numerot -->
+        <section class="content-section">
             <div class="container">
                 <h2>Keskeiset havainnot</h2>
-                <div class="methodology-grid">
-                    <div class="method-card">
-                        <h3>❌ Alkuperäisen mallin ongelmat</h3>
-                        <p>Multiplikaattori 1.25 oli merkittävästi aliarvioitu. Johti negatiiviseen NPV:hen (-45 000€) ja yli 15 vuoden takaisinmaksuaikaan.</p>
+                <div class="results-summary">
+                    <div class="result-item">
+                        <div class="result-number">187,000-386,000€</div>
+                        <div class="result-label">20v nettonykyarvo/henkilö</div>
                     </div>
-                    <div class="method-card">
-                        <h3>✅ Korjatun mallin tulokset</h3>
-                        <p>Tutkimusperusteisilla parametreillä (multiplikaattori 3.4) NPV on +178 500€ ja takaisinmaksuaika vain 2.1 vuotta.</p>
+                    <div class="result-item">
+                        <div class="result-number">2.1-4.2</div>
+                        <div class="result-label">Takaisinmaksu (vuotta)</div>
                     </div>
-                    <div class="method-card">
-                        <h3>🇸🇪 Ruotsin menestys selittyy</h3>
-                        <p>Vuoden 2016 "tahaton keynesiläisyys" ja neljä kertaa nopeampi kasvu kuin muissa Pohjoismaissa tukee tutkimuksen tuloksia.</p>
+                    <div class="result-item">
+                        <div class="result-number">3.4-4.3</div>
+                        <div class="result-label">Multiplikaattorikerroin</div>
                     </div>
-                    <div class="method-card">
-                        <h3>🔄 Hoivapalveluiden voima</h3>
-                        <p>EU-tutkimuksen mukaan fiskaalinen multiplikaattori 4.3 hoivapalveluille - yksi hoitaja mahdollistaa kymmeniä muiden työpaikkoja.</p>
+                    <div class="result-item">
+                        <div class="result-number">21,677€</div>
+                        <div class="result-label">Vuosittaiset verotulot</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Quick Calculator Preview -->
-        <section id="preview-calculator" class="content-section">
+        <!-- Taustaa -->
+        <section id="taustaa" class="content-section">
             <div class="container">
-                <h2>Pikaesimerkki: Miten parametrit vaikuttavat</h2>
-                <div class="calculator-container">
-                    <div class="calculator-inputs">
-                        <div class="input-group">
-                            <label for="preview-multiplier">Multiplikaattori:</label>
-                            <input type="number" id="preview-multiplier" min="1" max="5" step="0.1" value="3.4">
+                <h2>Tutkimuksen taustaa</h2>
+                <p class="section-intro">
+                    Ei-työperäinen maahanmuutto, erityisesti pakolaisten ja turvapaikkahakijoiden vastaanotto, 
+                    on merkittävä poliittinen ja taloudellinen kysymys Suomessa. Perinteiset analyysit keskittyvät 
+                    usein lyhyen aikavälin kustannuksiin sivuuttaen pitkäaikaiset taloudelliset hyödyt.
+                </p>
+                
+                <div class="method-cards">
+                    <div class="method-card">
+                        <h3>Tutkimusongelma</h3>
+                        <p>Millaisia ovat ei-työperäisen maahanmuuton kokonaistaloudelliset vaikutukset Suomen julkiselle taloudelle, kun otetaan huomioon kotoutumiskustannukset, välittömät verotulot ja multiplikaattorivaikutukset?</p>
+                    </div>
+                    <div class="method-card">
+                        <h3>Aineisto</h3>
+                        <p>Tutkimus perustuu KEHA-keskuksen virallisiin korvauksiin, Tilastokeskuksen palkkatietoihin, Verohallinnon verotietoihin ja VATT:n työllistymistutkimuksiin.</p>
+                    </div>
+                    <div class="method-card">
+                        <h3>Aikajänne</h3>
+                        <p>Analyysi kattaa 20 vuoden ajanjakson 3%:n diskonttokorolla, mikä mahdollistaa pitkän aikavälin vaikutusten tarkastelun.</p>
+                    </div>
+                </div>
+                <a href="pages/taustaa.html" class="read-more-btn">Lue tarkempi tausta-analyysi</a>
+            </div>
+        </section>
+
+        <!-- Menetelmät -->
+        <section id="menetelmat" class="content-section">
+            <div class="container">
+                <h2>Tutkimusmenetelmät ja laskentamallit</h2>
+                <p class="section-intro">
+                    Analyysi käyttää nettonykyarvomenetelmää (NPV) ja huomioi sekä suorat että välilliset 
+                    taloudelliset vaikutukset. Erityisesti hoivapalveluiden korkeat multiplikaattorivaikutukset 
+                    (3.4-4.3) muuttavat merkittävästi kokonaislaskelmaa.
+                </p>
+
+                <div class="scenario-cards">
+                    <div class="scenario-card pessimistic">
+                        <div class="scenario-title">Pessimistinen skenaario</div>
+                        <ul class="scenario-metrics">
+                            <li><span class="metric-label">Työllistymisaste:</span> <span class="metric-value">30%</span></li>
+                            <li><span class="metric-label">Multiplikaattori:</span> <span class="metric-value">2.0</span></li>
+                            <li><span class="metric-label">20v NPV:</span> <span class="metric-value">89,420€</span></li>
+                            <li><span class="metric-label">Takaisinmaksu:</span> <span class="metric-value">6.5v</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="scenario-card realistic">
+                        <div class="scenario-title">Realistinen skenaario</div>
+                        <ul class="scenario-metrics">
+                            <li><span class="metric-label">Työllistymisaste:</span> <span class="metric-value">52%</span></li>
+                            <li><span class="metric-label">Multiplikaattori:</span> <span class="metric-value">3.4</span></li>
+                            <li><span class="metric-label">20v NPV:</span> <span class="metric-value">298,750€</span></li>
+                            <li><span class="metric-label">Takaisinmaksu:</span> <span class="metric-value">2.8v</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="scenario-card optimistic">
+                        <div class="scenario-title">Optimistinen skenaario</div>
+                        <ul class="scenario-metrics">
+                            <li><span class="metric-label">Työllistymisaste:</span> <span class="metric-value">70%</span></li>
+                            <li><span class="metric-label">Multiplikaattori:</span> <span class="metric-value">4.3</span></li>
+                            <li><span class="metric-label">20v NPV:</span> <span class="metric-value">385,900€</span></li>
+                            <li><span class="metric-label">Takaisinmaksu:</span> <span class="metric-value">2.1v</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="pages/menetelmat.html" class="read-more-btn">Tutustu laskentamalleihin</a>
+            </div>
+        </section>
+
+        <!-- Tulokset -->
+        <section id="tulokset" class="content-section">
+            <div class="container">
+                <h2>Keskeiset tulokset ja analyysit</h2>
+                <p class="section-intro">
+                    Tutkimus osoittaa, että ei-työperäinen maahanmuutto on taloudellisesti kannattavaa investointia 
+                    Suomen kontekstissa, kun analyysi tehdään riittävän pitkällä aikavälillä ja huomioidaan 
+                    multiplikaattorivaikutukset.
+                </p>
+                
+                <div class="key-findings">
+                    <strong>Vuosittaiset taloudelliset vaikutukset (täystyöllistynyt):</strong>
+                    <ul>
+                        <li><strong>Suorat verotulot:</strong> 10,692€ (45% kokonaisveroaste)</li>
+                        <li><strong>Kulutusverot:</strong> 4,504€ (20% painotettu ALV)</li>
+                        <li><strong>Välilliset verotulot:</strong> 6,481€ (3.4 multiplikaattori)</li>
+                        <li><strong>Yhteensä:</strong> 21,677€/vuosi</li>
+                    </ul>
+                </div>
+                
+                <div class="key-findings">
+                    <strong>Kotoutumiskustannukset:</strong>
+                    <ul>
+                        <li><strong>Keskimääräiset vuosittaiset kustannukset:</strong> 5,428€/henkilö (2.5 vuotta)</li>
+                        <li><strong>Sosiaalietuudet työttömille:</strong> 17,400€/vuosi</li>
+                        <li><strong>Alkukartoitus:</strong> 700€ (kertaluontoinen)</li>
+                    </ul>
+                </div>
+                
+                <a href="pages/tulokset.html" class="read-more-btn">Tutustu yksityiskohtaisiin tuloksiin</a>
+            </div>
+        </section>
+
+        <!-- Interaktiivinen laskuri -->
+        <section id="laskuri" class="content-section">
+            <div class="container">
+                <h2>Interaktiivinen kannattavuuslaskuri</h2>
+                <p class="section-intro">
+                    Kokeile itse, miten eri muuttujat vaikuttavat maahanmuuton taloudelliseen kannattavuuteen. 
+                    Voit säätää parametreja ja nähdä välittömästi vaikutukset laskelmiin.
+                </p>
+                
+                <div id="immigration-calculator" class="calculator-section">
+                    <div class="calculator-grid">
+                        <div class="calculator-inputs">
+                            <h3>Säädä parametreja</h3>
+                            
+                            <div class="input-group">
+                                <label for="employment-rate">Työllistymisaste 10 vuoden jälkeen (%)</label>
+                                <input type="number" id="employment-rate" min="10" max="100" value="52" step="1">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="annual-salary">Vuosipalkka kokoaikaisena (€)</label>
+                                <input type="number" id="annual-salary" min="15000" max="50000" value="23760" step="1000">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="multiplier">Multiplikaattorikerroin</label>
+                                <select id="multiplier">
+                                    <option value="2.0">2.0 (Pessimistinen)</option>
+                                    <option value="3.4" selected>3.4 (Tutkimusperusteinen)</option>
+                                    <option value="4.3">4.3 (Optimistinen)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="integration-cost">Vuosittaiset kotoutumiskustannukset (€)</label>
+                                <input type="number" id="integration-cost" min="3000" max="10000" value="5428" step="100">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="time-horizon">Tarkastelujaksso (vuotta)</label>
+                                <select id="time-horizon">
+                                    <option value="10">10 vuotta</option>
+                                    <option value="20" selected>20 vuotta</option>
+                                    <option value="30">30 vuotta</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="input-group">
-                            <label for="preview-employment">Työllisyysaste 10v (%):</label>
-                            <input type="number" id="preview-employment" min="30" max="80" step="5" value="60">
-                        </div>
-                        <div class="input-group">
-                            <label for="preview-salary">Keskipalkka (€/kk):</label>
-                            <input type="number" id="preview-salary" min="2000" max="4000" step="100" value="2800">
+                        
+                        <div class="calculator-results">
+                            <h3>Lasketut tulokset</h3>
+                            
+                            <div class="result-display">
+                                <div class="result-value" id="npv-result">298,750€</div>
+                                <div class="result-description">Nettonykyarvo (NPV)</div>
+                            </div>
+                            
+                            <div class="result-display">
+                                <div class="result-value" id="payback-result">2.8 vuotta</div>
+                                <div class="result-description">Takaisinmaksuaika</div>
+                            </div>
+                            
+                            <div class="result-display">
+                                <div class="result-value" id="annual-revenue-result">21,677€</div>
+                                <div class="result-description">Vuotuiset verotulot (kokoaika)</div>
+                            </div>
+                            
+                            <div class="result-display">
+                                <div class="result-value" id="net-annual-result">12,485€</div>
+                                <div class="result-description">Nettovaikutus/vuosi (vakaan tilan)</div>
+                            </div>
                         </div>
                     </div>
-                    <button class="calculate-btn" onclick="calculatePreview()">Laske NPV</button>
-                    <div class="results-display" id="preview-results" style="display: none;">
-                        <div class="result-item">
-                            <span class="result-label">NPV (20v):</span>
-                            <span class="result-value" id="preview-npv">€</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-label">Takaisinmaksuaika:</span>
-                            <span class="result-value" id="preview-payback">vuotta</span>
+                    
+                    <div class="calculator-scenarios">
+                        <h4>Tai kokeile valmiita skenaarioita:</h4>
+                        <div class="method-cards">
+                            <div class="method-card scenario-card" data-scenario="pessimistic" style="cursor: pointer;">
+                                <h4>Pessimistinen</h4>
+                                <p>30% työllistyminen, 2.0 multiplikaattori</p>
+                            </div>
+                            <div class="method-card scenario-card" data-scenario="realistic" style="cursor: pointer;">
+                                <h4>Realistinen</h4>
+                                <p>52% työllistyminen, 3.4 multiplikaattori</p>
+                            </div>
+                            <div class="method-card scenario-card" data-scenario="optimistic" style="cursor: pointer;">
+                                <h4>Optimistinen</h4>
+                                <p>70% työllistyminen, 4.3 multiplikaattori</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <p style="text-align: center; margin-top: 20px;">
-                    <a href="laskuri.html" class="read-more-btn">Siirry täydelliseen laskuriin →</a>
+                
+                <a href="pages/laskentamallit.html" class="read-more-btn">Tutustu laskentalogiikkaan</a>
+            </div>
+        </section>
+
+        <!-- Johtopäätökset -->
+        <section id="johtopäätökset" class="content-section">
+            <div class="container">
+                <h2>Johtopäätökset ja suositukset</h2>
+                <p class="section-intro">
+                    Tutkimus osoittaa vahvaa evidenssiä ei-työperäisen maahanmuuton positiivisista taloudellisista 
+                    vaikutuksista Suomessa, kun analyysi tehdään riittävän pitkällä aikavälillä ja huomioidaan 
+                    multiplikaattorivaikutukset.
                 </p>
+                
+                <div class="key-findings">
+                    <strong>Keskeiset johtopäätökset:</strong>
+                    <ul>
+                        <li>Kotoutusinvestoinnit maksavat itsensä takaisin 2.1-4.2 vuodessa riippuen multiplikaattorioletuksista</li>
+                        <li>20 vuoden nettohyöty on 187,000-386,000 euroa per henkilö</li>
+                        <li>Hoivapalveluiden multiplikaattorivaikutukset (3.4-4.3) ovat kriittisiä kannattavuuden kannalta</li>
+                        <li>Nopea työllistyminen parantaa merkittävästi yhteiskunnallista tuottoa</li>
+                    </ul>
+                </div>
+                
+                <div class="key-findings">
+                    <strong>Poliittiset suositukset:</strong>
+                    <ul>
+                        <li>Kotoutumispalveluihin investoiminen on taloudellisesti perusteltua</li>
+                        <li>Nopean työllistymisen edistäminen tulee priorisoida</li>
+                        <li>Hoivapalveluiden koulutus ja työllistäminen kannattaa</li>
+                        <li>Multiplikaattorivaikutukset tulisi sisällyttää virallisiin vaikutusarviointeihin</li>
+                    </ul>
+                </div>
+                
+                <a href="pages/johtopäätökset.html" class="read-more-btn">Lue kattavat johtopäätökset</a>
+            </div>
+        </section>
+
+        <!-- Lähteet -->
+        <section class="content-section">
+            <div class="container">
+                <h2>Keskeiset lähteet</h2>
+                <div class="method-cards">
+                    <div class="method-card">
+                        <h3>Viralliset tilastot</h3>
+                        <ul>
+                            <li>KEHA-keskus: Kotoutumisen laskennalliset korvaukset 2025</li>
+                            <li>Tilastokeskus: Palkkarakenne 2024</li>
+                            <li>Verohallinto: Verotiedot 2024-2025</li>
+                        </ul>
+                    </div>
+                    <div class="method-card">
+                        <h3>Tutkimuskirjallisuus</h3>
+                        <ul>
+                            <li>VATT (2023): Maahanmuuttajien työllistymisen kehitys</li>
+                            <li>Reeves et al. (2013): Hoivapalveluiden multiplikaattorit EU:ssa</li>
+                            <li>World Bank (2024): Health, Economic Growth and Jobs</li>
+                        </ul>
+                    </div>
+                    <div class="method-card">
+                        <h3>Vertailututkimukset</h3>
+                        <ul>
+                            <li>Dustmann & Frattini (2014): UK:n maahanmuuton fiskaalinen vaikutus</li>
+                            <li>d'Albis et al. (2018): Turvapaikanhakijat Länsi-Euroopassa</li>
+                            <li>Rothstein (2017): Ruotsin "tahaton keynesiläisyys"</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="pages/lähteet.html" class="read-more-btn">Kaikki lähteet ja metodologia</a>
             </div>
         </section>
     </main>
 
-    <!-- Sources Section -->
-    <section id="sources" class="content-section">
-        <div class="container">
-            <h2>Keskeiset lähteet</h2>
-            <div class="article-content">
-                <p><strong>Empiirinen data:</strong> Tilastokeskus (2024), VATT (2023), THL:n rekisteriaineistot</p>
-                <p><strong>Kustannusdata:</strong> KEHA-keskus (2025), Kela, Verohallinto</p>
-                <p><strong>Multiplikaattorit:</strong> Reeves et al. (2013), World Bank (2025)</p>
-                <p><strong>Kansainvälinen vertailu:</strong> Rothstein (2017), Intereconomics (2017), Ruist (2015)</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2025 Maahanmuuttotutkimus - Suomen analyysi. Kehitetty Claude Sonnet 4:n kanssa.</p>
-            <p><a href="../index.html">← Takaisin pääsivulle</a></p>
+            <p>&copy; 2025 Ei-työperäisen maahanmuuton taloudellinen analyysi - Suomi. Sivusto luotu yhteistyössä Claude Sonnet 4 -tekoälyn kanssa.</p>
+            <p>Tietosuoja: Sivusto tallentaa ainoastaan teemavalintaa localStorage:een käyttäjän suostumuksella.</p>
+            <div class="back-home" style="margin-top: 20px;">
+                <a href="../index.html" class="back-home-btn">← Takaisin etusivulle</a>
+            </div>
         </div>
     </footer>
 
     <script src="../js/main.js"></script>
-    <script>
-        function calculatePreview() {
-            const multiplier = parseFloat(document.getElementById('preview-multiplier').value);
-            const employment = parseFloat(document.getElementById('preview-employment').value) / 100;
-            const salary = parseFloat(document.getElementById('preview-salary').value);
-            
-            // Simplified NPV calculation
-            const annualGrossTax = salary * 12 * employment * 0.31; // 31% effective tax rate
-            const annualConsumptionTax = salary * 12 * employment * 0.24 * 0.24; // 24% VAT
-            const annualIndirectTax = annualGrossTax * multiplier * 0.4; // Indirect effects
-            const annualRevenue = annualGrossTax + annualConsumptionTax + annualIndirectTax;
-            
-            const annualCosts = 9680; // From research
-            const annualNetCashFlow = annualRevenue - annualCosts;
-            
-            // NPV calculation (20 years, 3% discount)
-            let npv = 0;
-            for (let year = 1; year <= 20; year++) {
-                npv += annualNetCashFlow / Math.pow(1.03, year);
-            }
-            
-            // Payback period
-            let cumulativeCashFlow = 0;
-            let paybackYears = 0;
-            for (let year = 1; year <= 20; year++) {
-                cumulativeCashFlow += annualNetCashFlow;
-                if (cumulativeCashFlow > 0 && paybackYears === 0) {
-                    paybackYears = year;
-                    break;
-                }
-            }
-            
-            // Display results
-            document.getElementById('preview-npv').textContent = `${Math.round(npv).toLocaleString('fi-FI')} €`;
-            document.getElementById('preview-npv').className = npv > 0 ? 'result-value' : 'result-value negative';
-            document.getElementById('preview-payback').textContent = paybackYears > 0 ? `${paybackYears} vuotta` : 'Ei kannattava';
-            document.getElementById('preview-results').style.display = 'block';
-        }
-    </script>
 </body>
 </html>
