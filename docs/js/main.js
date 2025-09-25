@@ -213,15 +213,256 @@ class NavigationEffects {
   }
 }
 
+// Interactive Calculator for Immigration Economics
+class ImmigrationCalculator {
+  constructor() {
+    this.scenarios = {
+      pessimistic: {
+        employmentRate: 30,
+        salary: 20000,
+        multiplier: 2.0,
+        integrationCost: 8000
+      },
+      realistic: {
+        employmentRate: 52,
+        salary: 23760,
+        multiplier: 3.4,
+        integrationCost: 5428
+      },
+      optimistic: {
+        employmentRate: 70,
+        salary: 28000,
+        multiplier: 4.3,
+        integrationCost: 4000
+      }
+    };
+    
+    this.init();
+  }
+
+  init() {
+    this.setupCalculator();
+    this.setupScenarioCards();
+  }
+
+  setupCalculator() {
+    const calculatorElement = document.getElementById('immigration-calculator');
+    if (!calculatorElement) return;
+
+    // Setup input listeners
+    const inputs = calculatorElement.querySelectorAll('input, select');
+    inputs.forEach(input => {
+      input.addEventListener('input', () => this.updateResults());
+    });
+
+    // Initial calculation
+    this.updateResults();
+  }
+
+  setupScenarioCards() {
+    const scenarioCards = document.querySelectorAll('.scenario-card');
+    scenarioCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const scenario = card.dataset.scenario;
+        if (scenario && this.scenarios[scenario]) {
+          this.applyScenario(scenario);
+        }
+      });
+    });
+  }
+
+  applyScenario(scenarioName) {
+    const scenario = this.scenarios[scenarioName];
+    
+    // Update form inputs
+    const employmentInput = document.getElementById('employment-rate');
+    const salaryInput = document.getElementById('annual-salary');
+    const multiplierInput = document.getElementById('multiplier');
+    const integrationInput = document.getElementById('integration-cost');
+
+    if (employmentInput) employmentInput.value = scenario.employmentRate;
+    if (salaryInput) salaryInput.value = scenario.salary;
+    if (multiplierInput) multiplierInput.value = scenario.multiplier;
+    if (integrationInput) integrationInput.value = scenario.integrationCost;
+
+    this.updateResults();
+  }
+
+  updateResults() {
+    const employmentRate = parseFloat(document.getElementById('employment-rate')?.value) || 52;
+    const annualSalary = parseFloat(document.getElementById('annual-salary')?.value) || 23760;
+    const multiplier = parseFloat(document.getElementById('multiplier')?.value) || 3.4;
+    const integrationCost = parseFloat(document.getElementById('integration-cost')?.value) || 5428;
+    const timeHorizon = parseInt(document.getElementById('time-horizon')?.value) || 20;
+
+    // Tax calculations
+    const totalTaxRate = 0.45; // 45% total tax burden
+    const consumptionTaxRate = 0.20; // 20% weighted VAT
+    const consumptionRate = 0.95; // 95% of income consumed
+
+    // Annual calculations
+    const directTaxes = annualSalary * totalTaxRate * (employmentRate / 100);
+    const consumptionTaxes = annualSalary * consumptionRate * consumptionTaxRate * (employmentRate / 100);
+    const indirectTaxes = annualSalary * (multiplier - 1) * totalTaxRate * 0.5 * (employmentRate / 100);
+    
+    const totalAnnualRevenue = directTaxes + consumptionTaxes + indirectTaxes;
+    
+    // Social benefits for unemployed
+    const unemploymentRate = (100 - employmentRate) / 100;
+    const socialBenefits = unemploymentRate * (9600 + 4200 + 3600); // unemployment + housing + basic income support
+    
+    // Net annual impact after first few years (when integration costs end)
+    const netAnnualImpact = totalAnnualRevenue - socialBenefits;
+    
+    // NPV calculation
+    let npv = 0;
+    const discountRate = 0.03;
+    
+    for (let year = 1; year <= timeHorizon; year++) {
+      let yearlyBenefit;
+      if (year <= 3) {
+        // First 3 years include integration costs
+        yearlyBenefit = totalAnnualRevenue - socialBenefits - integrationCost;
+      } else {
+        yearlyBenefit = netAnnualImpact;
+      }
+      
+      npv += yearlyBenefit / Math.pow(1 + discountRate, year);
+    }
+
+    // Payback period calculation
+    let cumulativeCashFlow = 0;
+    let paybackPeriod = 0;
+    
+    for (let year = 1; year <= 10; year++) {
+      let yearlyBenefit;
+      if (year <= 3) {
+        yearlyBenefit = totalAnnualRevenue - socialBenefits - integrationCost;
+      } else {
+        yearlyBenefit = netAnnualImpact;
+      }
+      
+      cumulativeCashFlow += yearlyBenefit;
+      
+      if (cumulativeCashFlow > 0 && paybackPeriod === 0) {
+        paybackPeriod = year;
+        break;
+      }
+    }
+
+    // Update display
+    this.displayResults({
+      npv: npv,
+      paybackPeriod: paybackPeriod,
+      annualRevenue: totalAnnualRevenue,
+      netAnnualImpact: netAnnualImpact,
+      directTaxes: directTaxes,
+      indirectTaxes: indirectTaxes,
+      socialBenefits: socialBenefits
+    });
+  }
+
+  displayResults(results) {
+    const displayElements = {
+      'npv-result': this.formatCurrency(results.npv),
+      'payback-result': results.paybackPeriod > 0 ? `${results.paybackPeriod} vuotta` : 'Ei maksa takaisin 10 vuodessa',
+      'annual-revenue-result': this.formatCurrency(results.annualRevenue),
+      'net-annual-result': this.formatCurrency(results.netAnnualImpact),
+      'direct-taxes-result': this.formatCurrency(results.directTaxes),
+      'indirect-taxes-result': this.formatCurrency(results.indirectTaxes),
+      'social-benefits-result': this.formatCurrency(results.socialBenefits)
+    };
+
+    Object.entries(displayElements).forEach(([id, value]) => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.textContent = value;
+        
+        // Add color coding for NPV and net annual impact
+        if (id === 'npv-result' || id === 'net-annual-result') {
+          const parentDisplay = element.closest('.result-display');
+          if (parentDisplay) {
+            parentDisplay.classList.remove('positive', 'negative');
+            if (results.npv > 0 || results.netAnnualImpact > 0) {
+              parentDisplay.classList.add('positive');
+            } else {
+              parentDisplay.classList.add('negative');
+            }
+          }
+        }
+      }
+    });
+  }
+
+  formatCurrency(amount) {
+    return new Intl.NumberFormat('fi-FI', {
+      style: 'currency',
+      currency: 'EUR',
+      maximumFractionDigits: 0
+    }).format(amount);
+  }
+}
+
+// Animation utilities
+class AnimationUtils {
+  static observeElements() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    // Observe cards and result elements
+    document.querySelectorAll('.country-card, .method-card, .result-item, .info-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'all 0.6s ease';
+      observer.observe(el);
+    });
+  }
+
+  static counterAnimation(element, targetValue, suffix = '') {
+    let currentValue = 0;
+    const increment = targetValue / 50;
+    const timer = setInterval(() => {
+      currentValue += increment;
+      if (currentValue >= targetValue) {
+        currentValue = targetValue;
+        clearInterval(timer);
+      }
+      element.textContent = Math.round(currentValue) + suffix;
+    }, 20);
+  }
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   const siteManager = new SiteManager();
   const navEffects = new NavigationEffects();
+  const calculator = new ImmigrationCalculator();
+  
+  // Setup animations
+  AnimationUtils.observeElements();
   
   // Update active nav link on scroll
   window.addEventListener('scroll', () => {
     siteManager.updateActiveNavLink();
   });
+  
+  // Animate result numbers on page load
+  setTimeout(() => {
+    document.querySelectorAll('.result-number').forEach(el => {
+      const value = parseInt(el.textContent.replace(/\D/g, ''));
+      if (value) {
+        AnimationUtils.counterAnimation(el, value, el.textContent.replace(/\d/g, ''));
+      }
+    });
+  }, 500);
 });
 
 // Handle page visibility change (for better UX)
@@ -234,3 +475,7 @@ document.addEventListener('visibilitychange', () => {
     }
   }
 });
+
+// Export for global access
+window.SiteManager = SiteManager;
+window.ImmigrationCalculator = ImmigrationCalculator;
