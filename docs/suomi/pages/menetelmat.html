@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutkimusmenetelmät - Ei-työperäisen maahanmuuton taloudelliset vaikutukset Suomessa</title>
+    <meta name="description" content="Yksityiskohtainen kuvaus tutkimusmenetelmistä ja laskentamalleista">
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent" class="cookie-consent" style="display: none;">
+        <div class="cookie-content">
+            <p>Tämä sivusto tallentaa teemavalintasi selaimen muistiin paremman käyttökokemuksen takaamiseksi. Jatkaako tallentaminen?</p>
+            <div class="cookie-buttons">
+                <button id="accept-cookies" class="btn-accept">Hyväksy</button>
+                <button id="decline-cookies" class="btn-decline">Kieltäydy</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1><a href="../../index.html">Maahanmuuton taloudellinen analyysi</a></h1>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-link">Suomi-analyysi</a>
+                <a href="../index.html#menetelmat" class="nav-link">Menetelmät</a>
+                <a href="../index.html#tulokset" class="nav-link">Tulokset</a>
+                <a href="../index.html#laskuri" class="nav-link">Laskuri</a>
+                
+                <button id="theme-toggle" class="theme-toggle" aria-label="Vaihda teemaa">
+                    <span class="theme-icon"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <article class="article-container">
+            <header class="article-header">
+                <h1 class="article-title">Tutkimusmenetelmät ja laskentamallit</h1>
+                <p class="article-subtitle">Yksityiskohtainen kuvaus siitä, miten taloudelliset vaikutukset lasketaan</p>
+            </header>
+
+            <div class="back-home">
+                <a href="../index.html" class="back-home-btn">← Takaisin Suomi-analyysiin</a>
+            </div>
+
+            <div class="article-content">
+                <p class="section-intro">
+                    <em><strong>Huomautus:</strong> Tämä sivusto on luotu yhteistyössä Claude Sonnet 4 -tekoälyn kanssa tutkimustulosten havainnollistamiseksi ja analyysien selkeyttämiseksi.</em>
+                </p>
+
+                <h2>Yleiskatsaus tutkimusmenetelmään</h2>
+
+                <p>Tämä tutkimus käyttää <strong>nettonykyarvomenetelmää (NPV)</strong> arvioidakseen ei-työperäisen maahanmuuton taloudellista kannattavuutta Suomen julkiselle taloudelle. Menetelmä ottaa huomioon kaikki keskeiset kustannukset ja tuotot 20 vuoden aikajänteellä, diskontattuna 3 prosentin vuosikorkokannalla.</p>
+
+                <p>Analyysi eroaa merkittävästi perinteisistä maahanmuuttotutkimuksista <strong>huomioimalla multiplikaattorivaikutukset</strong>, jotka syntyvät erityisesti silloin, kun maahanmuuttajat työllistyvät hoivapalveluihin ja muihin työvoimaintensiivisiin sektoreihin.</p>
+
+                <h2>Aineisto ja tietolähteet</h2>
+
+                <h3>Kotoutumiskustannukset</h3>
+
+                <p>Kotoutumiskustannusten arviointi perustuu KEHA-keskuksen (ELY-keskusten elinkeino-, liikenne- ja ympäristötoimi) virallisiin korvausmääriin vuodelle 2025:</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Ikäryhmä</th>
+                            <th>Vuosittainen korvaus</th>
+                            <th>Ensimmäinen vuosi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alle 7-vuotiaat</td>
+                            <td>2,741 €</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>7-17-vuotiaat</td>
+                            <td>2,052 €</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>18+ vuotiaat</td>
+                            <td>2,052 €</td>
+                            <td>+7,741 € (yhteensä 9,793 €)</td>
+                        </tr>
+                        <tr>
+                            <td>Alkukartoitus</td>
+                            <td colspan="2">700 € (kertaluontoinen)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Painotettu keskiarvo eri ikäryhmien jakaumasta on <strong>5,428 euroa per henkilö per vuosi</strong> ensimmäisten 2,5 vuoden aikana. Kotoutumispalvelut kestävät keskimäärin 2,5 vuotta, jonka jälkeen kustannukset laskevat merkittävästi.</p>
+
+                <h3>Palkkatasot ja työllistyminen</h3>
+
+                <p>Palkkatiedot perustuvat Tilastokeskuksen palkkarakennetilastoon 2024 ja voimassa oleviin työehtosopimuksiin. Maahanmuuttajien keskimääräinen työllistymisprofiili perustuu VATT:n tutkimukseen (2023):</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Sektori</th>
+                            <th>Kuukausipalkka</th>
+                            <th>Vuosipalkka (1,760h)</th>
+                            <th>Tuntipalkka</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lähihoitajat</td>
+                            <td>2,300-3,200 € (ka. 2,750 €)</td>
+                            <td>33,000 €</td>
+                            <td>18.8 €</td>
+                        </tr>
+                        <tr>
+                            <td>Siivouspalvelut</td>
+                            <td>2,000-2,300 € (ka. 2,150 €)</td>
+                            <td>25,800 €</td>
+                            <td>14.7 €</td>
+                        </tr>
+                        <tr>
+                            <td>Ravintola-ala</td>
+                            <td>1,800-2,100 € (ka. 1,950 €)</td>
+                            <td>23,400 €</td>
+                            <td>13.3 €</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Painotettu keskiarvo</strong></td>
+                            <td><strong>1,980 €</strong></td>
+                            <td><strong>23,760 €</strong></td>
+                            <td><strong>13.5 €</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Verotiedot</h3>
+
+                <p>Verotuksessa käytetään Verohallinnon virallisia tietoja vuosilta 2024-2025. Kokonaisveroaste matalapalkka-aloilla on keskimäärin <strong>45 prosenttia</strong>, joka sisältää:</p>
+
+                <ul>
+                    <li>Ansiotulovero (progressiivinen, 6-20%)</li>
+                    <li>Kunnallisvero (19-23%, keskiarvo 20%)</li>
+                    <li>Kirkollispero (1-2%)</li>
+                    <li>Sairausvakuutusmaksu (1.68%)</li>
+                    <li>Työttömyysvakuutusmaksu (1.25%)</li>
+                    <li>Työnantajamaksut (noin 20%)</li>
+                </ul>
+
+                <p>Kulutusveroja varten käytetään painotettua ALV-korkoa 20%, joka ottaa huomioon eri verokannat (25.5% yleinen, 14% ravintolat, 10% kirjat jne.) ja niiden osuudet matalapalkkaisten kulutuksessa.</p>
+
+                <h2>Nettonykyarvomenetelmä (NPV)</h2>
+
+                <h3>Peruskaava</h3>
+
+                <p>Nettonykyarvo lasketaan kaavalla:</p>
+
+                <div class="key-findings">
+                    <strong>NPV = Σ(t=1 to T) [(Verotulot_t - Kustannukset_t) / (1+r)^t]</strong><br><br>
+                    Missä:<br>
+                    • T = tarkastelujakso (20 vuotta)<br>
+                    • r = diskonttokorko (3%)<br>
+                    • Verotulot_t = suorat + kulutus + välilliset verotulot vuonna t<br>
+                    • Kustannukset_t = kotoutus + sosiaalietuudet vuonna t
+                </div>
+
+                <h3>Diskonttauskorko</h3>
+
+                <p>Käytämme <strong>3 prosentin reaalikorkoa</strong>, joka vastaa Suomen keskuspitkän aikavälin riskitöntä tuottoa. Tämä on konservatiivinen arvio, sillä valtio voi lainata tällä hetkellä noin 2 prosentin korolla, mutta 3% ottaa huomioon inflaation ja tulevat korkotason muutokset.</p>
+
+                <h2>Multiplikaattorivaikutusten laskenta</h2>
+
+                <h3>Teoreettinen perusta</h3>
+
+                <p>Multiplikaattorivaikutukset syntyvät, kun yksi euro julkisia menoja synnyttää yli yhden euron taloudellista aktiviteettia. Hoivapalveluissa multiplikaattorit ovat erityisen korkeita, koska:</p>
+
+                <ul>
+                    <li><strong>Työvoimaintensiivisyys:</strong> Palkat menevät suoraan kulutukseen</li>
+                    <li><strong>Paikallisuus:</strong> Palveluja ei voi siirtää ulkomaille</li>
+                    <li><strong>Matala tuontasisältö:</strong> Pieni osa rahoista vuotaa ulkomaille</li>
+                    <li><strong>Ketjuvaikutukset:</strong> Hoivala tarvitsee ruokaa, lääkkeitä, kuljetuksia</li>
+                </ul>
+
+                <h3>Multiplikaattoreiden empiirinen perustelu</h3>
+
+                <p>Käytämme kolmea eri multiplikaattoriskenaariota, jotka perustuvat kansainväliseen tutkimuskirjallisuuteen:</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Skenaario</th>
+                            <th>Multiplikaattori</th>
+                            <th>Lähde</th>
+                            <th>Perustelu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Konservatiivinen</td>
+                            <td>2.5</td>
+                            <td>Perinteinen taloustiede</td>
+                            <td>Yleinen julkisten menojen kerroin</td>
+                        </tr>
+                        <tr>
+                            <td>Tutkimusperusteinen</td>
+                            <td>3.4</td>
+                            <td>World Bank (2024)</td>
+                            <td>Terveydenhuollon työpaikkojen kerroin</td>
+                        </tr>
+                        <tr>
+                            <td>Optimistinen</td>
+                            <td>4.3</td>
+                            <td>Reeves et al. (2013)</td>
+                            <td>EU-terveysmenojen fiskaalinen multiplikaattori</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Välillisten verotulojen laskenta</h3>
+
+                <p>Välilliset verotulot syntyvät multiplikaattorivaikutuksen kautta ja lasketaan kaavalla:</p>
+
+                <div class="key-findings">
+                    <strong>Välilliset tulot = Palkkatulot × (Multiplikaattori - 1) × Keskiveroaste × 0.5</strong><br><br>
+                    Kerroin 0.5 ottaa huomioon, että multiplikaattorivaikutus ei kaikki muutu välittömäksi verotuloksi.
+                </div>
+
+                <h2>Työllistymisskenaariot</h2>
+
+                <p>Työllistymispolut perustuvat VATT:n empiirisiin tutkimuksiin pakolaistaustaisten henkilöiden työllistymisestä Suomessa. Määrittelemme kolme pääskenaariota:</p>
+
+                <h3>Pakolaistaustaisten keskimääräinen polku (käytetty pääanalyysissä)</h3>
+                <ul>
+                    <li><strong>Vuodet 1-2:</strong> 15% työllistymisaste</li>
+                    <li><strong>Vuodet 3-5:</strong> 40% työllistymisaste</li>
+                    <li><strong>Vuodet 6-10:</strong> 52% työllistymisaste</li>
+                    <li><strong>Vuodet 11+:</strong> 60% työllistymisaste (ikäantymisen huomioiminen)</li>
+                </ul>
+
+                <h3>Sosiaalietuuksien laskenta</h3>
+
+                <p>Työttömille maahanmuuttajille arvioitavat vuosittaiset sosiaalietuudet:</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Etuus</th>
+                            <th>Kuukausittain</th>
+                            <th>Vuosittain</th>
+                            <th>Perustelu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Työttömyysturva</td>
+                            <td>800 €</td>
+                            <td>9,600 €</td>
+                            <td>Peruspäiväraha 500 päivää</td>
+                        </tr>
+                        <tr>
+                            <td>Asumistuki</td>
+                            <td>350 €</td>
+                            <td>4,200 €</td>
+                            <td>Keskimääräinen asumistuki</td>
+                        </tr>
+                        <tr>
+                            <td>Toimeentulotuki</td>
+                            <td>300 €</td>
+                            <td>3,600 €</td>
+                            <td>Täydentävä tuki</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Yhteensä</strong></td>
+                            <td><strong>1,450 €</strong></td>
+                            <td><strong>17,400 €</strong></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Herkkyysanalyysi</h2>
+
+                <p>Tutkimuksessa tehdään kattava herkkyysanalyysi, jossa testataan, miten tulokset muuttuvat keskeisten parametrien vaihdellessa:</p>
+
+                <h3>Testatut parametrit</h3>
+                <ul>
+                    <li><strong>Multiplikaattorikerroin:</strong> 2.0 - 5.0</li>
+                    <li><strong>Työllistymisaste:</strong> 30% - 80%</li>
+                    <li><strong>Palkkakehitys:</strong> 0% - 3% vuosittain</li>
+                    <li><strong>Diskonttokorko:</strong> 1% - 5%</li>
+                    <li><strong>Kotoutumiskustannukset:</strong> ±50%</li>
+                </ul>
+
+                <h3>Monte Carlo -simulaatio</h3>
+
+                <p>Lisäksi suoritamme Monte Carlo -simulaation 10,000 iteraatiolla, jossa kaikki keskeiset parametrit vaihtelevat samanaikaisesti realististen jakaumien mukaan. Tämä antaa luotettavan kuvan tulosten todennäköisyysjakaumasta ja riskitasosta.</p>
+
+                <h2>Laskentamallin rajoitukset</h2>
+
+                <p>On tärkeää tunnistaa mallin rajoitukset tulosten tulkinnassa:</p>
+
+                <h3>Metodologiset rajoitukset</h3>
+                <ul>
+                    <li><strong>Homogeenisuusoletus:</strong> Kaikki maahanmuuttajat käsitellään yhtenäisenä ryhmänä</li>
+                    <li><strong>Staattinen analyysi:</strong> Ei huomioida talouden rakenteellisia muutoksia</li>
+                    <li><strong>Multiplikaattoriarvioiden epävarmuus:</strong> Pohjautuvat kansainvälisiin tutkimuksiin</li>
+                    <li><strong>Yleisvaikutusten sivuuttaminen:</strong> Ei tarkastella vaikutuksia valtaväestön työllisyyteen</li>
+                </ul>
+
+                <h3>Datan rajoitukset</h3>
+                <ul>
+                    <li><strong>Lyhyet aikasarjat:</strong> Suomessa ei ole pitkiä seurantoja maahanmuuttajien työllistymisestä</li>
+                    <li><strong>Heterogeenisuus:</strong> Eri maista tulevat ja eri syistä saapuneet eroavat merkittävästi</li>
+                    <li><strong>Laatutiedot puuttuvat:</strong> Ei tietoa työn laadusta ja urakehtymisestä</li>
+                </ul>
+
+                <h2>Validointi ja vertailukohdat</h2>
+
+                <p>Tulosten uskottavuutta arvioidaan vertaamalla niitä muiden maiden kokemuksiin ja olemassa oleviin tutkimuksiin. Erityisesti Ruotsin, Tanskan ja Norjan kokemukset tarjoavat vertailupohjaa Suomen tuloksille.</p>
+
+                <p>Lisäksi mallin toimivuutta testataan historiallisella datalla - simuloimme, millaisia tuloksia malli olisi antanut 2000-luvun maahanmuutolle, ja vertaamme niitä toteutuneisiin vaikutuksiin.</p>
+
+                <h2>Seuraavat vaiheet</h2>
+
+                <p>Seuraavaksi siirrymme tarkastelemaan näillä menetelmillä saatuja tuloksia. Tulokset-osiossa käsittelemme:</p>
+
+                <ul>
+                    <li>Vuosittaiset taloudelliset vaikutukset eri skenaarioissa</li>
+                    <li>Nettonykyarvo-analyysit 10 ja 20 vuoden aikajänteillä</li>
+                    <li>Herkkyysanalyysin tulokset</li>
+                    <li>Vertailut muihin maihin ja politiikkasuositukset</li>
+                </ul>
+
+                <p>Metodologian läpinäkyvyys on keskeistä tulosten uskottavuudelle. Kaikki käytetyt kaavat, oletukset ja lähtötiedot on dokumentoitu tarkasti, jotta lukijat voivat arvioida analyysin luotettavuutta ja toistaa laskelmia tarvittaessa.</p>
+            </div>
+
+            <div class="back-home">
+                <a href="../index.html" class="back-home-btn">← Takaisin Suomi-analyysiin</a>
+            </div>
+        </article>
+    </main>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>
