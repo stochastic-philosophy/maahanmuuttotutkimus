@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPV-laskuri - Ei-työperäisen maahanmuuton taloudelliset vaikutukset</title>
+    <meta name="description" content="Interaktiivinen laskuri maahanmuuttoinvestoinnin kannattavuuden arviointiin">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent" class="cookie-consent" style="display: none;">
+        <div class="cookie-content">
+            <p>Tämä sivusto tallentaa teemavalintasi selaimen muistiin paremman käyttökokemuksen takaamiseksi. Jatkaako tallentaminen?</p>
+            <div class="cookie-buttons">
+                <button id="accept-cookies" class="btn-accept">Hyväksy</button>
+                <button id="decline-cookies" class="btn-decline">Kieltäydy</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1><a href="index.html">Suomi-tutkimus</a></h1>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Etusivu</a>
+                <a href="yleiskatsaus.html" class="nav-link">Yleiskatsaus</a>
+                <a href="menetelmat.html" class="nav-link">Menetelmät</a>
+                <a href="tulokset.html" class="nav-link">Tulokset</a>
+                <a href="johtopäätökset.html" class="nav-link">Johtopäätökset</a>
+                
+                <button id="theme-toggle" class="theme-toggle" aria-label="Vaihda teemaa">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <article class="article-container">
+            <header class="article-header">
+                <h1 class="article-title">Interaktiivinen NPV-laskuri</h1>
+                <p class="article-subtitle">Testaa eri parametrien vaikutuksia kotoutusinvestoinnin kannattavuuteen</p>
+            </header>
+
+            <div class="back-home">
+                <a href="index.html" class="back-home-btn">← Takaisin Suomen tutkimukseen</a>
+            </div>
+
+            <div class="article-content">
+                <h2>Käyttöohjeet</h2>
+                <p>Tämä laskuri mahdollistaa eri parametrien testaamisen ja niiden vaikutusten näkemisen reaaliajassa. Voit säätää keskeisiä muuttujia ja nähdä välittömästi, miten ne vaikuttavat investoinnin nettonykyarvoon (NPV) ja takaisinmaksuaikaan.</p>
+
+                <div class="methodology-grid">
+                    <div class="method-card">
+                        <h3>📊 Multiplikaattori</h3>
+                        <p>Hoivapalveluiden taloudellinen kerroinvaikutus. Tutkimusperusteinen arvo 3.4.</p>
+                    </div>
+                    <div class="method-card">
+                        <h3>👥 Työllisyysaste</h3>
+                        <p>Pitkän aikavälin työllisyys (10v jälkeen). Suomen keskiarvo 60%.</p>
+                    </div>
+                    <div class="method-card">
+                        <h3>💰 Keskipalkka</h3>
+                        <p>Kuukausipalkka euroina. Vaikuttaa verotuloihin merkittävästi.</p>
+                    </div>
+                    <div class="method-card">
+                        <h3>⏱️ Diskonttokorko</h3>
+                        <p>Rahan aika-arvo. 3% vastaa Suomen valtionlainan korkoa.</p>
+                    </div>
+                </div>
+
+                <!-- Calculator Interface -->
+                <div class="calculator-container">
+                    <h2>Säädä parametrit</h2>
+                    
+                    <div class="calculator-inputs">
+                        <div class="input-group">
+                            <label for="multiplier">
+                                Multiplikaattori: <span id="multiplier-value">3.4</span>
+                            </label>
+                            <input type="range" id="multiplier" min="1.5" max="5.0" step="0.1" value="3.4">
+                            <div class="range-labels">
+                                <span>1.5 (Pessimistinen)</span>
+                                <span>5.0 (Optimistinen)</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="employment">
+                                Työllisyysaste 10v: <span id="employment-value">60</span>%
+                            </label>
+                            <input type="range" id="employment" min="30" max="80" step="5" value="60">
+                            <div class="range-labels">
+                                <span>30% (Heikko)</span>
+                                <span>80% (Erinomainen)</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="salary">
+                                Keskipalkka: <span id="salary-value">2800</span>€/kk
+                            </label>
+                            <input type="range" id="salary" min="2000" max="4000" step="100" value="2800">
+                            <div class="range-labels">
+                                <span>2000€</span>
+                                <span>4000€</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="discount">
+                                Diskonttokorko: <span id="discount-value">3</span>%
+                            </label>
+                            <input type="range" id="discount" min="1" max="6" step="0.5" value="3">
+                            <div class="range-labels">
+                                <span>1% (Matala)</span>
+                                <span>6% (Korkea)</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="period">
+                                Tarkasteluperiodi: <span id="period-value">20</span> vuotta
+                            </label>
+                            <input type="range" id="period" min="10" max="30" step="5" value="20">
+                            <div class="range-labels">
+                                <span>10v</span>
+                                <span>30v</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Results Display -->
+                    <div class="results-display" id="calculator-results">
+                        <h3>Tulokset</h3>
+                        <div class="result-item">
+                            <span class="result-label">NPV (<span id="result-period">20</span>v):</span>
+                            <span class="result-value" id="result-npv">178 500€</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Takaisinmaksuaika:</span>
+                            <span class="result-value" id="result-payback">2.1 vuotta</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Vuotuinen nettokassavirta (keskim.):</span>
+                            <span class="result-value" id="result-annual">14 280€</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Tuotto/investointisuhde:</span>
+                            <span class="result-value" id="result-roi">2.47</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Kannattavuusarvio:</span>
+                            <span class="result-value" id="result-assessment">Erittäin kannattava</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario Comparison -->
+                <div class="calculator-container">
+                    <h3>Skenaariovertailu</h3>
+                    <div class="scenario-buttons">
+                        <button class="scenario-btn" onclick="setScenario('pessimistic')">Pessimistinen</button>
+                        <button class="scenario-btn" onclick="setScenario('realistic')">Realistinen</button>
+                        <button class="scenario-btn" onclick="setScenario('optimistic')">Optimistinen</button>
+                        <button class="scenario-btn" onclick="setScenario('original')">Alkuperäinen malli</button>
+                    </div>
+                    
+                    <div class="data-table" style="margin-top: 20px;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Skenaario</th>
+                                    <th>Multiplikaattori</th>
+                                    <th>Työllisyys</th>
+                                    <th>NPV</th>
+                                    <th>Takaisinmaksu</th>
+                                </tr>
+                            </thead>
+                            <tbody id="scenario-comparison">
+                                <!-- JavaScript täyttää tämän -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Live Chart -->
+                <div class="chart-container">
+                    <h3>NPV-kehitys vuosittain</h3>
+                    <canvas id="npvChart" width="800" height="400"></canvas>
+                    <p style="text-align: center; color: var(--text-secondary); font-size: 0.9rem;">
+                        Sininen = Kumulatiivinen NPV, Punainen = Vuotuinen kassavirta
+                    </p>
+                </div>
+
+                <!-- Sensitivity Analysis -->
+                <div class="calculator-container">
+                    <h3>Herkkyysanalyysi</h3>
+                    <p>Katso, miten yksittäisten parametrien muutokset vaikuttavat NPV:hen:</p>
+                    
+                    <div class="chart-container">
+                        <canvas id="sensitivityChart" width="800" height="300"></canvas>
+                    </div>
+                    
+                    <div class="sensitivity-insights" id="sensitivity-insights">
+                        <!-- JavaScript täyttää analyysitulokset -->
+                    </div>
+                </div>
+
+                <!-- What-if scenarios -->
+                <div class="calculator-container">
+                    <h3>Entä jos -skenaariot</h3>
+                    
+                    <div class="methodology-grid">
+                        <div class="method-card">
+                            <h3>💼 Parempi kotoutus</h3>
+                            <p>Jos työllisyys nousee 75%:iin tehokkailla ohjelmilla</p>
+                            <button class="scenario-btn" onclick="setWhatIf('better-integration')">Testaa</button>
+                        </div>
+                        <div class="method-card">
+                            <h3>📉 Taantuma</h3>
+                            <p>Jos työllisyys jää 45%:iin taloudellisten vaikeuksien takia</p>
+                            <button class="scenario-btn" onclick="setWhatIf('recession')">Testaa</button>
+                        </div>
+                        <div class="method-card">
+                            <h3>🏥 Korkeammat multiplikaattorit</h3>
+                            <p>Jos hoivapalveluiden vaikutus on EU-tutkimuksen mukainen (4.3)</p>
+                            <button class="scenario-btn" onclick="setWhatIf('high-multiplier')">Testaa</button>
+                        </div>
+                        <div class="method-card">
+                            <h3>💸 Inflaatio</h3>
+                            <p>Jos diskonttokorko nousee 5%:iin inflaation myötä</p>
+                            <button class="scenario-btn" onclick="setWhatIf('inflation')">Testaa</button>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Tulkinta-apua</h2>
+                
+                <div class="data-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>NPV-tulos</th>
+                                <th>Tulkinta</th>
+                                <th>Suositus</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>> 150 000€</td>
+                                <td>Erittäin kannattava</td>
+                                <td>Vahva taloudellinen peruste investoinnille</td>
+                            </tr>
+                            <tr>
+                                <td>50 000€ - 150 000€</td>
+                                <td>Kannattava</td>
+                                <td>Positiivinen, mutta vaatii huolellista toteutusta</td>
+                            </tr>
+                            <tr>
+                                <td>0€ - 50 000€</td>
+                                <td>Marginaalisesti kannattava</td>
+                                <td>Riippuu toteutuksen laadusta</td>
+                            </tr>
+                            <tr>
+                                <td>< 0€</td>
+                                <td>Kannattamaton</td>
+                                <td>Vaatii merkittäviä parannuksia parametreihin</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Kriittisiä kynnysarvoja</h2>
+
+                <ul>
+                    <li><strong>Multiplikaattori alle 2.0:</strong> Investointi muuttuu kannattamattomaksi</li>
+                    <li><strong>Työllisyysaste alle 35%:</strong> Pitkän aikavälin hyödyt riittämättömiä</li>
+                    <li><strong>Keskipalkka alle 2200€:</strong> Verotulojen määrä riittämätön</li>
+                    <li><strong>Diskonttokorko yli 7%:</strong> NPV muuttuu negatiiviseksi</li>
+                </ul>
+
+                <p><strong>Johtopäätös:</strong> Tutkimuksen realistiset parametrit (multiplikaattori 3.4, työllisyys 60%, palkka 2800€) ovat selvästi kynnysarvojen yläpuolella, mikä tukee investoinnin kannattavuutta.</p>
+            </div>
+
+            <div class="back-home">
+                <a href="index.html" class="back-home-btn">← Takaisin Suomen tutkimukseen</a>
+            </div>
+        </article>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/calculator-fin.js"></script>
+</body>
+</html>
