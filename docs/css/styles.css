@@ -419,6 +419,13 @@ body {
   margin-bottom: 10px;
 }
 
+.result-value-static {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
 .result-label {
   color: var(--text-secondary);
   font-weight: 500;
