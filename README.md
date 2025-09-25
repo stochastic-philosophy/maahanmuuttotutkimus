@@ -1,193 +1,212 @@
 # Ei-työperäisen maahanmuuton taloudelliset vaikutukset
 
-Kattava kansainvälinen vertaileva tutkimus ei-työperäisen maahanmuuton todellisista taloudellisista vaikutuksista. Analyysi perustuu realistiseen nettonykyarvomenetelmään (NPV), joka huomioi todelliset työllistymispolut, kokonaiskustannukset ja multiplikaattorivaikutukset.
+Tämä repositorio sisältää kattavia taloudellisia analyyseja ei-työperäisen maahanmuuton vaikutuksista eri maissa. Tutkimukset perustuvat empiiriseen dataan, virallisiin tilastoihin ja tieteellisesti perusteltuihin laskentamenetelmiin.
 
-![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-
-## 🌟 Keskeiset havainnot
+## 🌍 Käytettävissä olevat analyysit
 
 ### 🇫🇮 Suomi
-- **NPV**: 178 500€ per henkilö (20v)
-- **Takaisinmaksuaika**: 2.1 vuotta
-- **Tuotto/investointisuhde**: 2.47
-- **Todennäköisyys kannattavuudelle**: 95%
+- **Status**: ✅ Valmis
+- **Aikaväli**: 20 vuoden NPV-analyysi
+- **Keskeiset tulokset**: 187,000-386,000€ nettohyöty per henkilö
+- **Takaisinmaksuaika**: 2.1-4.2 vuotta
+- **[Tutustu analyysiin →](https://stochastic-philosophy.github.io/maahanmuutto-analyysi/suomi/)**
 
-### 🔍 Kriittinen löydös
-Aiemmat analyysit käyttivät **multiplikaattoria 1.25**, joka oli merkittävästi aliarvioitu. Kansainvälinen tutkimustieto osoittaa hoivapalveluiden multiplikaattorin olevan **3.4-4.3**, mikä muuttaa investoinnin selvästi kannattavaksi.
+### 🇺🇸 Yhdysvallat  
+- **Status**: 🚧 Tulossa pian
+- **Keskittää**: Liittovaltion vs. osavaltioiden kustannukset
+- **Vertailu**: Eurooppalaisten mallien kanssa
 
-## 📁 Projektin rakenne
+## 📊 Tutkimusmenetelmät
+
+### Nettonykyarvo-analyysi (NPV)
+- **Aikaväli**: 20 vuotta
+- **Diskonttokorko**: 3%
+- **Huomioi**: Kotoutumiskustannukset, verotulot, multiplikaattorivaikutukset
+
+### Multiplikaattorivaikutukset
+- **Hoivapalvelut**: 3.4-4.3x kerroin
+- **Perustuu**: Kansainväliseen tutkimukseen (Reeves et al. 2013, World Bank 2024)
+- **Kriittinen tekijä**: 30% osuus kokonaistuloista
+
+### Aineisto
+- **Viralliset lähteet**: KEHA-keskus, Tilastokeskus, Verohallinto
+- **Tutkimusdata**: VATT, kansainvälinen kirjallisuus
+- **Ajantasainen**: 2024-2025 tiedot
+
+## 🎯 Keskeiset havainnot
+
+### Suomi-analyysin tulokset
+
+| Skenaario | Multiplikaattori | 20v NPV | Takaisinmaksu |
+|-----------|------------------|---------|---------------|
+| Pessimistinen | 2.5 | 187,350€ | 4.2v |
+| Realistinen | 3.4 | 298,750€ | 2.8v |
+| Optimistinen | 4.3 | 385,900€ | 2.1v |
+
+### Vuosittaiset vaikutukset (täystyöllistynyt)
+- **Suorat verotulot**: 10,692€ (49.3%)
+- **Kulutusverot**: 4,504€ (20.8%) 
+- **Välilliset verotulot**: 6,481€ (29.9%)
+- **Yhteensä**: 21,677€/vuosi
+
+## 🔧 Sivuston rakenne
 
 ```
-maahanmuuttotutkimus/
-├── index.html                 # Pääindeksi - monikansallinen vertailu
+docs/
+├── index.html              # Pääsivu kaikille maille
 ├── css/
-│   └── styles.css            # Tyylitiedostot (vaalea/tumma teema)
+│   └── styles.css          # Yhteinen tyylitiedosto
 ├── js/
-│   ├── main.js               # Perusskriptit ja teemaenhallinta
-│   └── calculator.js         # NPV-laskurin toiminnallisuus
-├── suomi/                    # Suomen tutkimus
-│   ├── index.html           # Suomen tutkimuksen pääsivu
-│   ├── yleiskatsaus.html    # Tutkimuksen tavoitteet ja tausta
-│   ├── menetelmat.html      # NPV-malli ja metodologia
-│   ├── tulokset.html        # Numeriset tulokset ja analyysi
-│   ├── laskuri.html         # Interaktiivinen NPV-laskuri
-│   └── johtopäätökset.html  # Politiikkasuositukset
-├── usa/                      # USA:n tutkimus (tulossa)
-│   └── index.html           # USA:n analyysi (sisältö lisätään erikseen)
-├── README.md                 # Tämä tiedosto
-└── LICENSE                   # Lisenssi (valinnainen)
+│   └── main.js             # Toiminnallisuudet ja laskuri
+├── suomi/
+│   ├── index.html          # Suomi-analyysin pääsivu
+│   ├── pages/              # Yksityiskohtaiset alasivut
+│   │   ├── taustaa.html
+│   │   ├── menetelmat.html
+│   │   ├── tulokset.html
+│   │   ├── johtopäätökset.html
+│   │   └── lähteet.html
+│   └── downloads/          # PDF-raportit
+└── usa/                    # Tulossa pian
 ```
+
+## ⚙️ Sivuston ominaisuudet
+
+### Tekninen toteutus
+- **Responsiivinen design**: Toimii mobiilissa, tabletissa ja työpöydällä
+- **Tumma/vaalea teema**: Käyttäjä voi vaihtaa teemojen välillä
+- **GDPR-yhteensopiva**: Cookie consent EU-säädösten mukaan
+- **Semantic HTML**: Saavutettava ja hakukoneoptimoitu
+
+### Interaktiivisuus
+- **📱 Kannattavuuslaskuri**: Säädä parametreja ja katso vaikutukset
+- **📊 Skenaariosimulkaatiot**: Pessimistinen, realistinen, optimistinen
+- **📈 Dynaaminen päivitys**: Reaaliaikainen laskenta
+- **🎛️ Herkkyysanalyysi**: Testaa eri oletuksia
+
+### Saavutettavuus
+- **Sticky navigation**: Yläpalkki pysyy näkyvissä
+- **Smooth scrolling**: Sujuva siirtyminen osioiden välillä  
+- **Selkeä hierarkia**: Looginen rakenne ja navigaatio
+- **Tietoturva**: Vain localStorage teemavalintaa varten
 
 ## 🚀 Käyttöönotto GitHub Pages:ssa
 
-### 1. Repositorion luominen
-```bash
-git clone [repository-url]
-cd maahanmuuttotutkimus
-```
+### Pikaloitus
+1. **Forkkaa** tämä repositorio
+2. **Mene Settings** > Pages
+3. **Valitse Source**: "Deploy from a branch"
+4. **Valitse branch**: `main` ja folder: `/ (docs)`
+5. **Sivusto valmis** osoitteessa: `https://stochastic-philosophy.github.io/maahanmuutto-analyysi/`
 
-### 2. GitHub Pages:n aktivointi
-1. Mene GitHub-repositorion **Settings**-välilehdelle
-2. Valitse **Pages** vasemmasta sivupalkista
-3. **Source**: Deploy from a branch
-4. **Branch**: `main` 
-5. **Folder**: `/ (root)`
-6. Klikkaa **Save**
+### Mukautus
+- **Päivitä tiedot**: Korvaa maakohtaiset tiedot omilla analyyseillä
+- **Lisää maita**: Kopioi `suomi/`-kansion rakenne
+- **Muokkaa ulkoasua**: Säädä `css/styles.css` tiedostoa
+- **Laajenna toiminnallisuutta**: Kehitä `js/main.js` tiedostoa
 
-### 3. Sivusto käynnissä
-Sivusto on käytettävissä osoitteessa: `https://[käyttäjänimi].github.io/maahanmuuttotutkimus/`
+## 📋 Vaatimukset
 
-## 🎯 Ominaisuudet
+### Tekniset vaatimukset
+- **Selaimet**: Moderni selaintuki (Chrome, Firefox, Safari, Edge)
+- **JavaScript**: Toimii myös ilman JavaScriptiä (progressiivinen parantaminen)
+- **Ei palvelinpuolen koodia**: Staattinen sivusto
 
-### 📊 Interaktiivinen NPV-laskuri
-- **Reaaliaikaiset parametrit**: Multiplikaattori, työllisyysaste, keskipalkka, diskonttokorko
-- **Skenaariovertailu**: Pessimistinen, realistinen, optimistinen, alkuperäinen malli
-- **"Entä jos" -simulaatiot**: Parempi kotoutus, taantuma, inflaatiovaikutukset
-- **Live-visualisoinnit**: NPV-kehitys, herkkyysanalyysi
-- **Monte Carlo -tyylinen analyysi**: Epävarmuustekijöiden mallintaminen
+### Sisältövaatimukset
+- **Läpinäkyvyys**: Kaikki laskelmat ja oletukset avoimesti
+- **Lähdeviitteet**: Jokainen väite perusteltava luotettavaan lähteeseen  
+- **Tasapuolisuus**: Myös rajoitukset ja epävarmuudet esitettävä
+- **Ajantasaisuus**: Tietojen päivittäminen säännöllisen epäsäännöllisesti
 
-### 🎨 Käyttöliittymä
-- **Responsiivinen design**: Toimii mobiilissa, tabletissa ja työpöydällä
-- **Tumma/vaalea teema**: Automaattinen tai käyttäjän valinta
-- **Interaktiiviset kaaviot**: Canvas-pohjaiset visualisoinnit
-- **GDPR-yhteensopiva**: Cookie consent vain teemavalinnalle
-- **Saavutettavuus**: Semantic HTML, ARIA labels, näppäimistönavigaatio
+## 🔍 Laatu ja validointi
 
-### 📈 Analyysin syvyys
-- **20 vuoden NPV-malli**: Pitkäaikaisten vaikutusten arviointi
-- **Realistinen työllistymispolku**: Tilastokeskuksen ja VATT:n data
-- **Multiplikaattorivaikutukset**: Kansainvälisen tutkimustiedon mukainen
-- **Herkkyysanalyysi**: Kriittisten parametrien vaikutusten testaus
-- **Skenaariovertailut**: Pessimistisestä optimistiseen
+### Tietojen luotettavuus
+- **A-taso lähteet**: Viralliset tilastot (KEHA, Tilastokeskus, Verohallinto)  
+- **B-taso lähteet**: Vertaisarvioitu tutkimuskirjallisuus
+- **C-taso lähteet**: Kansainväliset organisaatiot (World Bank, OECD)
 
-## 🔧 Tekniset yksityiskohdat
+### Metodologinen syvyys
+- **Herkkyysanalyysi**: Testattu parametrien vaikutus tuloksiin
+- **Skenaarioiden vertailu**: Pessimistinen, realistinen, optimistinen
+- **Kriittinen arviointi**: Myös tutkimuksen rajoitukset tunnustettu
 
-### Teknologiat
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript
-- **Tyylitiedostot**: CSS Custom Properties (CSS Variables)
-- **Kaaviot**: HTML5 Canvas (ei ulkoisia riippuvuuksia)
-- **Responsiivisuus**: CSS Grid, Flexbox
-- **Teemanhallinta**: LocalStorage + CSS Variables
+## 🤝 Yhteistyö ja kontribuutiot
 
-### Selainyhteensopivuus
-- Chrome 80+
-- Firefox 75+
-- Safari 13+
-- Edge 80+
+### Toivotut kontribuutiot
+- **🔢 Uusia maanalyyseee**: Saman metodologian soveltaminen muihin maihin
+- **📊 Datan päivitykset**: Uusimmat tilastot ja tutkimukset  
+- **🌍 Käännökset**: Sivuston kääntäminen muille kielille
+- **🔧 Teknisiä parannuksia**: UX, saavutettavuus, suorituskyky
 
-### Suorituskyky
-- **Nopea lataus**: Ei ulkoisia riippuvuuksia
-- **Kevyt**: Yhteensä ~150KB assets
-- **Progressive enhancement**: Toimii myös ilman JavaScriptiä (osittain)
+### Kontribuutioprosessi
+1. **Forkkaa** repositorio
+2. **Luo feature branch** (`git checkout -b uusi-ominaisuus`)
+3. **Commitoi muutokset** (`git commit -am 'Lisää uusi ominaisuus'`)
+4. **Push branchiin** (`git push origin uusi-ominaisuus`)
+5. **Luo Pull Request**
 
-## 📚 Tutkimuksen metodologia
+## 📄 Lisenssi ja käyttöoikeudet
 
-### NPV-malli
-```
-NPV = Σ(t=1 to T) [(Verotulot_t - Kustannukset_t) / (1+r)^t]
-```
+### Sisältö
+- **Tutkimusanalyysit**: Vapaasti käytettävissä akateemisiin ja ei-kaupallisiin tarkoituksiin
+- **Lähdeviittaus**: Mainitse lähde käyttäessä analyysejä
+- **Muokkaukset sallittu**: Edellyttää alkuperäisen lähteen mainitsemista
 
-**Keskeiset parametrit:**
-- **T**: Tarkasteluperioidi (20 vuotta)
-- **r**: Diskonttokorko (3% - Suomen valtionlainan korko)
-- **Multiplikaattori**: 3.4 (World Bank 2025)
-- **Työllisyysaste**: 60% (10v jälkeen, Tilastokeskus)
+### Koodi
+- **MIT License**: Koodi vapaasti käytettävissä
+- **Sivupohjat**: Vapaasti mukautettavissa omiin projekteihin
+- **Komponentit**: JavaScript ja CSS komponentit uudelleenkäytettävissä
 
-### Tietolähteet
-- **Kotoutuskustannukset**: KEHA-keskus 2025
-- **Työllistymisdata**: Tilastokeskus 2024, VATT 2023
-- **Multiplikaattorit**: Reeves et al. 2013, World Bank 2025
-- **Verotusdata**: Verohallinto, Veronmaksajain Keskusliitto
-- **Kansainvälinen vertailu**: Rothstein 2017, Intereconomics 2017
+## 🔬 Tieteen ja politiikan risteyskohdassa
 
-## 🌍 Kansainvälinen vertailu
+### Tavoite
+Tuoda **evidenssipohjaista tietoa** maahanmuuttokeskustelun tueksi. Politiikka hyötyy parhaiten tosiasioihin perustuvista analyyseistä, ei ideologisista kannanotoista.
 
-### Ruotsin malli
-Tutkimus analysoi Ruotsin "tahaton keynesiläisyys" -ilmiötä vuodesta 2016:
-- **BKT-kasvu**: +3.2% (vs. 0.8% muut Pohjoismaat)
-- **Työllisyys**: 58% pakolaistaustaisia töissä
-- **Multiplikaattorivaikutukset**: Toteutuivat odotetusti
+### Lähtökohtea
+- **Tieteellinen objektiivisuus**: Tulokset johtavat argumentteja, eivät toisinpäin  
+- **Metodologinen läpinäkyvyys**: Kaikki laskelmat tarkistettavissa
+- **Poliittinen neutraaliuus**: Ei kannateta mitään puoluetta tai ideologiaa
+- **Inhimillinen ulottuvuus**: Taloudellisten lukujen takana ovat ihmisten elämät
 
-### USA:n analyysi (tulossa)
-USA:n kotoutusjärjestelmän analyysi on valmisteilla ja lisätään sivustolle myöhemmin.
+## 🛠️ Tekninen toteutus
 
-## 🎯 Käyttökohteet
+### Käytetyt teknologiat
+- **HTML5**: Semanttinen markup, saavutettavuus
+- **CSS3**: Custom properties, flexbox, grid, responsiivisuus
+- **Vanilla JavaScript**: Ei ulkoisia riippuvuuksia
+- **GitHub Pages**: Staattinen hosting
 
-### Päättäjille
-- **Politiikkasuositukset**: Evidenssipohjaisia suosituksia maahanmuuttopolitiikalle
-- **Kustannus-hyötyanalyysi**: Selkeä NPV-malli päätöksenteon tueksi
-- **Skenaarioanalyysi**: Eri toteutusvaihtoehtojen vertailu
+### Suorituskyvyn optimointi
+- **Minimaalinen JavaScript**: Vain tarvittavat toiminnallisuudet
+- **Optimoidut kuvat**: Compressoidut ja responsiiviset
+- **CSS optimointi**: Kriittinen CSS inlined
+- **Lazy loading**: Sisällön lataus tarpeen mukaan
 
-### Tutkijoille
-- **Metodologia**: Avoimen lähdekoodin NPV-laskuri jatkotutkimuksille
-- **Datalähteet**: Kattava lähdeluettelo ja läpinäkyvä metodologia
-- **Replikoitavuus**: Kaikki parametrit ja laskentamenetelmät avoinna
+## 📞 Yhteydenotto ja palaute
 
-### Kansalaisille
-- **Ymmärrettävyys**: Selkeä esitys monimutkaisesta taloudellisesta analyysistä
-- **Interaktiivisuus**: Mahdollisuus testata eri parametrien vaikutuksia
-- **Läpinäkyvyys**: Avoin pääsy kaikkiin laskelmiin ja oletuksiin
+### Palaute ja kysymykset
+- **GitHub Issues**: Raportoi bugit tai ehdota parannuksia
+- **Keskustelu**: GitHub Discussions väittelylle ja kysymyksille
+- **Sähköposti**: stochasticphilosophy(at)gmail(dot)com
 
-## 🤝 Myötävaikuttaminen
-
-Projekti on avoin jatkokehitykselle. Erityisesti kaivattaisiin:
-
-### Sisältöä
-- **Maakohtaisia analyysejä**: Muiden maiden kotoutusmallien tutkiminen
-- **Sektorikohtaista dataa**: Tarkemmat multiplikaattorit eri aloille
-- **Alueellisia analyysejä**: Paikalliset vaihtelut tuloksissa
-
-### Tekniikkaa
-- **Visualisointien parantaminen**: D3.js tai Chart.js -integraatio
-- **Mobiilikokemuksen optimointi**: PWA-ominaisuudet
-- **Saavutettavuuden parantaminen**: WCAG 2.1 AA -taso
-
-### Tiedon laatu
-- **Lähteiden päivittäminen**: Uusin tutkimustieto ja tilastot
-- **Validointi**: Vertaisarviointi ja metodologian tarkistus
-- **Käännökset**: Sisällön saatavuus useilla kielillä
-
-## 📄 Lisenssi
-
-Tämä projekti on julkaistu [MIT-lisenssillä](LICENSE). Sivuston sisältö on vapaasti käytettävissä akateemisiin ja ei-kaupallisiin tarkoituksiin.
-
-## 🙏 Kiitokset
-
-- **Claude Sonnet 4**: Analyysin kehittäminen ja sivuston toteutus
-- **Tilastokeskus**: Empiirinen data työllistymispolusta
-- **VATT**: Maahanmuuttajien työllisyystutkimukset
-- **KEHA-keskus**: Kotoutuskustannusten tiedot
-- **World Bank & EU**: Kansainväliset multiplikaattoritutkimukset
-
-## 📞 Yhteystiedot
-
-Kysymyksiä, kommentteja tai ehdotuksia? Ota yhteyttä:
-- **GitHub Issues**: Teknisiä kysymyksiä ja parannusehdotuksia
-- **Tutkimuksesta**: Akateemiset kysymykset tutkimuksen metodologiasta
+### Median yhteydenotot
+Tutkimustulosten journalistinen käsittely on tervetullutta. Pyydämme vain huolellisuutta monimutkaisten metodologioiden selittämisessä ja kontekstin säilyttämisessä.
 
 ---
 
-**Huom**: Tämä tutkimus on kehitetty Claude Sonnet 4:n avustuksella ja perustuu julkisesti saatavilla oleviin tietoihin. Tulokset ovat suuntaa-antavia ja vaativat jatkokehittämistä ennen poliittisia päätöksiä.
+## 🤖 Tekoälyn rooli projektissa
+
+**Tärkeä huomautus**: Tämä sivusto ja sen sisältöön analyysit on luotu **yhteistyössä Claude Sonnet 4 -tekoälyn kanssa**. Tekoäly on auttanut:
+
+- **Datan analysoinnissa** ja laskentamallien rakentamisessa
+- **Sivuston teknisessä toteutuksessa** (HTML, CSS, JavaScript)
+- **Tutkimustulosten havainnollistamisessa** ja selkeyttämisessä
+- **Interaktiivisten elementtien** kehittämisessä
+
+Käyttäjät voivat itse arvioida, onko tekoälyn osallistuminen heille este sivustoon tutustumisessa. Kaikki esitetyt laskelmat, lähteet ja metodologia ovat kuitenkin tarkistettavissa riippumattomasti.
+
+---
+
+**📊 Evidenssipohjaiset päätökset, parempi yhteiskunta**
+
+*"Kun politiikka perustuu tosiasioihin tiivaltteiden, tunnuksiltaan tai ideologioiden sijaan, voimme rakentaa inhimillisemmän ja taloudellisesti järkevämmän tulevaisuuden."*
